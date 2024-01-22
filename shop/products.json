@@ -1,0 +1,101 @@
+{
+  "products": [
+    {
+        "id": 1,
+        "name": "Деревянный стул Соло-Ж венге",
+        "price": 5790.00,
+        "old_price" : 7990.00,
+        "photo": "https://sitparad.ru/wp-content/uploads/2022/03/dsc_1442_loss.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Деревянный стул Барон",
+        "price": 10490.00,
+        "old_price" : null,
+        "photo": "https://sitparad.ru/wp-content/uploads/2022/03/dsc2873_loss.jpg"
+      },
+      {
+        "id": 3,
+        "name": "Деревянный стул Соло-М белый",
+        "price": 5490.00,
+        "old_price" : 7990.00,
+        "photo": "https://sitparad.ru/wp-content/uploads/2022/03/dsc_1461_loss.jpg"
+      },
+      {
+        "id": 4,
+        "name": "Деревянный стул Уют белый",
+        "price": 9490.00,
+        "old_price" : 12990.00,
+        "photo": "https://sitparad.ru/wp-content/uploads/2022/03/dsc_1407_loss.jpg"
+      },
+      {
+        "id": 5,
+        "name": "Деревянный стул Уют черешня",
+        "price": 12990.00,
+        "old_price" : null,
+        "photo": "https://sitparad.ru/wp-content/uploads/2022/03/78b22890742a58b923a55556d1e4ea3f.jpg"
+      },
+      {
+        "id": 6,
+        "name": "Полукресло Флоренция",
+        "price": 8490.00,
+        "old_price" : 11990.00,
+        "photo": "https://sitparad.ru/wp-content/uploads/2022/05/dsc_0706_loss.jpg"
+      },
+      {
+        "id": 7,
+        "name": "Стол Гранд",
+        "price": 43990.00,
+        "old_price" : 49990.00,
+        "photo": "https://sitparad.ru/wp-content/uploads/2022/03/dsc_9414_loss.jpg"
+      },
+      {
+        "id": 8,
+        "name": "Стол круглый раздвижной Анкор белый",
+        "price": 31490.00,
+        "old_price" : 34990.00,
+        "photo": "https://sitparad.ru/wp-content/uploads/2022/03/dsc_1280_loss.jpg"
+      },
+      {
+        "id": 9,
+        "name": "Стол круглый раздвижной Анкор темный",
+        "price": 29490.00,
+        "old_price" : 34990.00,
+        "photo": "https://sitparad.ru/wp-content/uploads/2022/03/e925e4e717e742cfca6560852d37c898-e1629296977518.jpg"
+      },{
+        "id": 10,
+        "name": "Стол полуовальный раздвижной Арктика",
+        "price": 24490.00,
+        "old_price" : 27990.00,
+        "photo": "https://sitparad.ru/wp-content/uploads/2023/02/11_loss.jpg"
+      },
+      {
+        "id": 11,
+        "name": "Стол прямоугольный раздвижной Кронос керамика",
+        "price": 59990.00,
+        "old_price" : null,
+        "photo": "https://sitparad.ru/wp-content/uploads/2023/04/dsc2948.jpg"
+      },
+      {
+        "id": 12,
+        "name": "Стол прямоугольный раздвижной Олимп",
+        "price": 37990.00,
+        "old_price" : null,
+        "photo": "https://sitparad.ru/wp-content/uploads/2022/03/vagin2a.jpg"
+      },
+      {
+        "id": 13,
+        "name": "Стол стеклянный Зевс",
+        "price": 37790.00,
+        "old_price" : 44990.00,
+        "photo": "https://sitparad.ru/wp-content/uploads/2023/04/dsc2943.jpg"
+      },
+      {
+        "id": 14,
+        "name": "Стол полуовальный раздвижной Стайл",
+        "price": 29490.00,
+        "old_price" : 34990.00,
+        "photo": "https://sitparad.ru/wp-content/uploads/2023/06/dsc2968.jpg"
+      }
+  ]
+}
