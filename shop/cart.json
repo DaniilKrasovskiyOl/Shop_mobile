@@ -1,3 +1,22 @@
 {
-  "cart": []
+  "cart": [
+    {
+      "cart": [
+        {
+          "productId": 4,
+          "quantity": 4
+        }
+      ],
+      "id": "a11e"
+    },
+    {
+      "id": "3cfb",
+      "cart": [
+        {
+          "productId": 10,
+          "quantity": 1
+        }
+      ]
+    }
+  ]
 }

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'counterProd.dart';
-import '../service/shopingCart_service.dart';
-import 'package:the_shop/service/products_service.dart';
+import 'counter_product.dart';
+import '../repositories/cart_repos.dart';
+import 'package:the_shop/repositories/products_repos.dart';
 
-class CardInKorz extends StatefulWidget {
+class ProductInCartWidget extends StatefulWidget {
   final CartItem cartItem;
   final Function(int) onQuantityChanged;
   final Function() onRemove;
 
-  const CardInKorz({
+  const ProductInCartWidget({
     Key? key,
     required this.cartItem,
     required this.onQuantityChanged,
@@ -16,10 +16,10 @@ class CardInKorz extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<CardInKorz> createState() => _CardInKorzState();
+  State<ProductInCartWidget> createState() => _ProductInCartState();
 }
 
-class _CardInKorzState extends State<CardInKorz> {
+class _ProductInCartState extends State<ProductInCartWidget> {
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -61,7 +61,8 @@ class _CardInKorzState extends State<CardInKorz> {
                       ),
                       GestureDetector(
                         onTap: () {
-                          _removeCartItem(widget.cartItem.id, context, widget.onRemove);
+                          _removeCartItem(
+                              widget.cartItem.id, context, widget.onRemove);
                         },
                         child: SizedBox(
                           width: 16,
@@ -91,21 +92,21 @@ class _CardInKorzState extends State<CardInKorz> {
                           Container(
                             child: widget.cartItem.product.oldPrice != null
                                 ? Text(
-                              '${widget.cartItem.product.oldPrice} ₽',
-                              style: const TextStyle(
-                                color: Color(0xFF879195),
-                                fontSize: 12,
-                                fontFamily: 'Montserrat',
-                                fontWeight: FontWeight.w400,
-                                decoration: TextDecoration.lineThrough,
-                                height: 1.2,
-                              ),
-                            )
+                                    '${widget.cartItem.product.oldPrice} ₽',
+                                    style: const TextStyle(
+                                      color: Color(0xFF879195),
+                                      fontSize: 12,
+                                      fontFamily: 'Montserrat',
+                                      fontWeight: FontWeight.w400,
+                                      decoration: TextDecoration.lineThrough,
+                                      height: 1.2,
+                                    ),
+                                  )
                                 : null,
                           ),
                         ],
                       ),
-                      CounterProduct(
+                      CounterProductWidget(
                         initialValue: widget.cartItem.quantity,
                         onIncrement: _increment,
                         onDecrement: _decrement,
@@ -141,8 +142,6 @@ class _CardInKorzState extends State<CardInKorz> {
         .updateCartItemQuantity(cartItemId, productId, newQuantity);
   }
 
-
-
   void updateQuantity(int newQuantity) {
     setState(() {
       widget.onQuantityChanged(newQuantity);
@@ -150,7 +149,8 @@ class _CardInKorzState extends State<CardInKorz> {
   }
 }
 
-void _removeCartItem(String cartItemId, BuildContext context, Function() onRemove) {
+void _removeCartItem(
+    String cartItemId, BuildContext context, Function() onRemove) {
   showDeleteCartDialog(context, _removeCartItemConfirmed, cartItemId, onRemove);
 }
 
@@ -159,7 +159,11 @@ void _removeCartItemConfirmed(String cartItemId, Function() onRemove) {
   onRemove(); // Вызываем onRemove после удаления элемента из корзины
 }
 
-void showDeleteCartDialog(BuildContext context, Function(String, Function()) onRemoveCartItem, String cartItemId, Function() onRemove) {
+void showDeleteCartDialog(
+    BuildContext context,
+    Function(String, Function()) onRemoveCartItem,
+    String cartItemId,
+    Function() onRemove) {
   showDialog(
     context: context,
     builder: (BuildContext context) {

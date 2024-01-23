@@ -68,21 +68,26 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
-    - assets/shop_ico.png
+    - assets/icon.png
+    - assets/orange_icon.png
+    - assets/fs.png
+    - assets/navigation_help.png
+    - assets/furniture_store.svg
+    - assets/cart_help.png
+    - assets/welcome.png
     - assets/gora.svg
     - assets/close.svg
     - assets/dot_empty.svg
     - assets/dot_full.svg
-    - assets/logo.png
     - assets/shoping_bag.svg
-    - assets/vitrina.svg
-    - assets/catalog.svg
-    - assets/korzina.svg
+    - assets/product_showcase.svg
+    - assets/product_catalog.svg
+    - assets/shopping_cart.svg
     - assets/heart.svg
     - assets/profile.svg
-    - assets/vitrina_active.svg
-    - assets/catalog_active.svg
-    - assets/korzina_active.svg
+    - assets/product_showcase_active.svg
+    - assets/product_catalog_active.svg
+    - assets/shopping_cart_active.svg
     - assets/heart_active.svg
     - assets/profile_active.svg
     - assets/vector.svg

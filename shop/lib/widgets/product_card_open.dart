@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:the_shop/widgets/customButton.dart';
+import 'package:the_shop/widgets/custom_button.dart';
 
-class ProductCardOpen extends StatefulWidget {
+class ProductCardOpenWidget extends StatefulWidget {
   final String name;
   final double price;
   final double? oldPrice;
   final String image;
 
-  const ProductCardOpen(
+  const ProductCardOpenWidget(
       {Key? key,
       required this.name,
       required this.price,
@@ -17,10 +17,10 @@ class ProductCardOpen extends StatefulWidget {
       : super(key: key);
 
   @override
-  State<ProductCardOpen> createState() => _ProductCardOpenState();
+  State<ProductCardOpenWidget> createState() => _ProductCardOpenState();
 }
 
-class _ProductCardOpenState extends State<ProductCardOpen> {
+class _ProductCardOpenState extends State<ProductCardOpenWidget> {
   final PageController _pageController = PageController(initialPage: 1);
   int _currentPage = 1;
   late List<String> imageUrls;
@@ -59,7 +59,8 @@ class _ProductCardOpenState extends State<ProductCardOpen> {
         ),
         _buildDots(),
         Container(
-          margin: const EdgeInsets.only(left: 15, right: 15, top: 16, bottom: 8),
+          margin:
+              const EdgeInsets.only(left: 15, right: 15, top: 16, bottom: 8),
           color: Colors.white,
           child: Text(
             widget.name,
@@ -111,7 +112,7 @@ class _ProductCardOpenState extends State<ProductCardOpen> {
         ),
         Container(
           margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 32),
-          child: const CustomButton(
+          child: const CustomButtonWidget(
             text: 'в корзину',
             haveIcon: true,
           ),
@@ -137,7 +138,9 @@ class _ProductCardOpenState extends State<ProductCardOpen> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: List.generate(imageUrls.length, (int i) {
         return Container(
-          margin: EdgeInsets.only(left: i == 0 ? 0 : 7.5, right: i == imageUrls.length - 1 ? 0 : 7.5),
+          margin: EdgeInsets.only(
+              left: i == 0 ? 0 : 7.5,
+              right: i == imageUrls.length - 1 ? 0 : 7.5),
           width: 16.0,
           height: 16.0,
           child: SvgPicture.asset(

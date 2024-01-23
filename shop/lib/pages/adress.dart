@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:the_shop/widgets/appBar.dart';
-import 'package:the_shop/widgets/downBar.dart';
+import 'package:the_shop/widgets/app_bar.dart';
+import 'package:the_shop/widgets/down_bar.dart';
 import 'package:the_shop/widgets/exception.dart';
 
 class AdressPage extends StatelessWidget {
@@ -13,7 +13,7 @@ class AdressPage extends StatelessWidget {
         child: SafeArea(
           child: Scaffold(
             backgroundColor: Colors.white,
-            appBar: ShopAppBar(
+            appBar: AppBarWidget(
               textBar: 'Адреса магазинов',
               haveVector: true,
               onBackTap: () {
@@ -25,7 +25,7 @@ class AdressPage extends StatelessWidget {
                 const Expanded(child: ExceptionWidget()),
                 Container(
                   margin: const EdgeInsets.only(top: 16, bottom: 4),
-                  child: DownBar(indxPage: 5, parentContext: context),
+                  child: DownBarWidget(indxPage: 5, parentContext: context),
                 ),
               ],
             ),

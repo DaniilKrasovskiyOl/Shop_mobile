@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:the_shop/service/shopingCart_service.dart';
+import 'package:the_shop/repositories/cart_repos.dart';
 
 class Products {
   final int id;
@@ -111,7 +111,7 @@ class ProductsService {
       // Преобразуем данные корзины в формат, ожидаемый на сервере
       List<Map<String, dynamic>> cartData = cartItems
           .map((item) => {
-                'productId': item.product!.id,
+                'productId': item.product.id,
                 'quantity': item.quantity,
               })
           .toList();

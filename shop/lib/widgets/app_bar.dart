@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class ShopAppBar extends StatelessWidget implements PreferredSizeWidget {
+class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   final String textBar;
   final bool haveVector;
   final bool haveLink;
   final Function()? onBackTap;
 
-  const ShopAppBar({
+  const AppBarWidget({
     Key? key,
     required this.textBar,
     this.haveVector = false,
@@ -22,7 +22,8 @@ class ShopAppBar extends StatelessWidget implements PreferredSizeWidget {
         height: 54,
         width: double.infinity,
         clipBehavior: Clip.antiAlias,
-        decoration: const BoxDecoration(color: Colors.white),
+        decoration:
+            const BoxDecoration(color: Color.fromARGB(255, 253, 139, 1)),
         child: Stack(
           children: [
             if (haveVector)

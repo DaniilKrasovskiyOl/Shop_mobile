@@ -5,10 +5,10 @@ class SearchWidget extends StatefulWidget {
 
   @override
   // ignore: library_private_types_in_public_api
-  _SearchWidgetState createState() => _SearchWidgetState();
+  _SearchState createState() => _SearchState();
 }
 
-class _SearchWidgetState extends State<SearchWidget> {
+class _SearchState extends State<SearchWidget> {
   final TextEditingController _searchController = TextEditingController();
 
   @override

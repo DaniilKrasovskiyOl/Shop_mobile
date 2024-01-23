@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class CustomButton extends StatelessWidget {
+class CustomButtonWidget extends StatelessWidget {
   final String text;
   final bool haveIcon;
   final bool white;
 
-  const CustomButton(
+  const CustomButtonWidget(
       {Key? key, required this.text, this.haveIcon = false, this.white = false})
       : super(key: key);
 
@@ -14,7 +14,9 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 50,
-      color: white ? const Color(0x00000000) : const Color(0xFF1F1F1F),
+      color: white
+          ? const Color.fromARGB(255, 197, 109, 2)
+          : const Color.fromARGB(255, 253, 139, 1),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -136,7 +138,7 @@ class _ButtonNumState extends State<ButtonNum> {
                 child: Container(
                   height: MediaQuery.of(context).size.height,
                   width: MediaQuery.of(context).size.width * 0.2,
-                  color: const Color(0xFF1F1F1F),
+                  color: const Color.fromARGB(255, 255, 140, 0),
                   child: const Text(
                     '+',
                     textAlign: TextAlign.center,

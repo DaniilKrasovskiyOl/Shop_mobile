@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:the_shop/screens/adressPage.dart';
-import 'package:the_shop/screens/authorizedProfile.dart';
-import 'package:the_shop/widgets/customButton.dart';
-import '../widgets/appBar.dart';
-import '../widgets/downBar.dart';
-import 'myProfile.dart';
+import 'package:the_shop/pages/adress.dart';
+import 'package:the_shop/pages/authorized_profile.dart';
+import 'package:the_shop/widgets/custom_button.dart';
+import '../widgets/app_bar.dart';
+import '../widgets/down_bar.dart';
+import 'profile_auth.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -21,7 +21,7 @@ class _ProfilePageState extends State<ProfilePage> {
         child: SafeArea(
           child: Scaffold(
             backgroundColor: Colors.white,
-            appBar: const ShopAppBar(textBar: 'Профиль'),
+            appBar: const AppBarWidget(textBar: 'Профиль'),
             body: Column(
               children: [
                 Expanded(
@@ -41,7 +41,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                           const AutorizedProfile()),
                                 );
                               },
-                              child: const CustomButton(
+                              child: const CustomButtonWidget(
                                   text: 'войти / зарегистрироваться')),
                         ),
                         ProfileItem(
@@ -54,7 +54,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
                 Container(
                   margin: const EdgeInsets.only(top: 16, bottom: 4),
-                  child: DownBar(indxPage: 5, parentContext: context),
+                  child: DownBarWidget(indxPage: 5, parentContext: context),
                 ),
               ],
             ),

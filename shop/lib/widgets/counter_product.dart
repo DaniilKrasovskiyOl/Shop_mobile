@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class CounterProduct extends StatefulWidget {
+class CounterProductWidget extends StatefulWidget {
   final int initialValue;
   final Function() onIncrement;
   final Function() onDecrement;
   final Function(int) onUpdate;
 
-  const CounterProduct({
+  const CounterProductWidget({
     Key? key,
     required this.initialValue,
     required this.onIncrement,
@@ -15,10 +15,10 @@ class CounterProduct extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<CounterProduct> createState() => _CounterProductState();
+  State<CounterProductWidget> createState() => _CounterProductState();
 }
 
-class _CounterProductState extends State<CounterProduct> {
+class _CounterProductState extends State<CounterProductWidget> {
   late int _counter;
 
   @override

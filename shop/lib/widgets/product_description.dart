@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 //ignore: must_be_immutable
-class DescrProduct extends StatefulWidget {
+class DescriptionProductWidget extends StatefulWidget {
   String generalDescr;
   String style;
   String kind;
 
-  DescrProduct({
+  DescriptionProductWidget({
     Key? key,
     this.generalDescr = '',
     this.style = '',
@@ -18,7 +18,7 @@ class DescrProduct extends StatefulWidget {
   _DescrProductState createState() => _DescrProductState();
 }
 
-class _DescrProductState extends State<DescrProduct> {
+class _DescrProductState extends State<DescriptionProductWidget> {
   bool _isExpanded = false;
 
   @override

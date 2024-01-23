@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:the_shop/screens/onboarding.dart';
+import 'package:the_shop/pages/onboarding.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -16,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
       Navigator.push(
           // ignore: prefer_const_constructors
           context,
-          MaterialPageRoute(builder: (context) => OnboardingPage()));
+          MaterialPageRoute(builder: (context) => const OnboardingPage()));
     });
     return Scaffold(
       backgroundColor: Colors.white,
@@ -30,9 +30,9 @@ class _SplashScreenState extends State<SplashScreen> {
                 color: Colors.white,
               ),
               child: Image.asset(
-                'assets/shop_ico.png',
-                width: 250.0,
-                height: 250.0,
+                'assets/icon.png',
+                width: 500,
+                height: 500,
                 fit: BoxFit.contain,
               ),
             ),

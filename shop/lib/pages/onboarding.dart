@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'vitrina.dart';
-import 'package:the_shop/widgets/customButton.dart';
+import 'product_showcase.dart';
+import 'package:the_shop/widgets/custom_button.dart';
 
 class OnboardingPage extends StatefulWidget {
-  const OnboardingPage({super.key});
+  const OnboardingPage({Key? key}) : super(key: key);
 
   @override
   // ignore: library_private_types_in_public_api
@@ -22,7 +22,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
-        shadowColor: Colors.transparent,
+        shadowColor: Colors.black,
         actions: [
           IconButton(
             icon: const Icon(Icons.close, color: Colors.black),
@@ -49,19 +49,23 @@ class _OnboardingPageState extends State<OnboardingPage> {
               },
               children: [
                 _buildPage(
-                    image: 'assets/gora.svg',
-                    text:
-                        'Покупайте продукты не выходя из дома или получайте бонусы за прогулку за ними.'),
+                  image: 'assets/fs.png',
+                  text:
+                      'Вас приветствует магазин кухонной мебели Furniture Store.',
+                ),
                 _buildPage(
-                    image: 'assets/gora.svg',
-                    text:
-                        'Удобная навигация внутри магазина не позволит вам потеряться или что то забыть.'),
+                  image: 'assets/navigation_help.png',
+                  text:
+                      'Удобная навигация внутри магазина не позволит вам потеряться или что-то забыть.',
+                ),
                 _buildPage(
-                    image: 'assets/gora.svg',
-                    text: 'Делитесь корзиной с близкими и друзьями.'),
+                  image: 'assets/cart_help.png',
+                  text: 'Оформляйте заказы в корзине.',
+                ),
                 _buildPage(
-                    image: 'assets/gora.svg',
-                    text: 'Приятной работы с приложением'),
+                  image: 'assets/welcome.png',
+                  text: 'Приятной работы с приложением',
+                ),
               ],
             ),
           ),
@@ -81,12 +85,13 @@ class _OnboardingPageState extends State<OnboardingPage> {
               }
             },
             child: Container(
-                margin: const EdgeInsets.symmetric(horizontal: 15.0),
-                height: 50,
-                child: CustomButton(
-                  text: _currentPage < 3 ? 'далее' : 'начать',
-                  haveIcon: false,
-                )),
+              margin: const EdgeInsets.symmetric(horizontal: 15.0),
+              height: 50,
+              child: CustomButtonWidget(
+                text: _currentPage < 3 ? 'далее' : 'начать',
+                haveIcon: false,
+              ),
+            ),
           ),
           const SizedBox(
             height: 16.0,
@@ -105,43 +110,51 @@ class _OnboardingPageState extends State<OnboardingPage> {
   Widget _buildPage({required String image, required String text}) {
     return Column(
       children: [
-        Stack(
-          alignment: Alignment.center,
-          children: [
-            Container(
-              width: 273.0,
-              height: 273.0,
-              color: const Color(0xFFE0E0E0),
-            ),
-            SvgPicture.asset(
-              image,
-              height: 64.0,
-              width: 140.0,
-              fit: BoxFit.contain,
-            ),
-          ],
-        ),
+        _buildImageStack(image),
         const SizedBox(height: 23),
-        Container(
-          constraints: const BoxConstraints(
-            maxWidth: 265,
-            maxHeight: 81,
-          ),
-          child: Text(
-            text.toUpperCase(),
-            textAlign: TextAlign.center,
-            softWrap: true,
-            style: const TextStyle(
-              color: Colors.black,
-              fontSize: 12,
-              fontFamily: 'Montserrat',
-              fontWeight: FontWeight.w500,
-              height: 1.32,
-              letterSpacing: 1.44,
-            ),
-          ),
-        )
+        _buildTextContainer(text),
       ],
+    );
+  }
+
+  Widget _buildImageStack(String image) {
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        Container(
+          width: 273.0,
+          height: 273.0,
+          color: const Color(0xFFE0E0E0),
+        ),
+        Image.asset(
+          image,
+          height: 273.0,
+          width: 273.0,
+          fit: BoxFit.fill,
+        ),
+      ],
+    );
+  }
+
+  Widget _buildTextContainer(String text) {
+    return Container(
+      constraints: const BoxConstraints(
+        maxWidth: 265,
+        maxHeight: 81,
+      ),
+      child: Text(
+        text.toUpperCase(),
+        textAlign: TextAlign.center,
+        softWrap: true,
+        style: const TextStyle(
+          color: Colors.black,
+          fontSize: 14,
+          fontFamily: 'Montserrat',
+          fontWeight: FontWeight.w500,
+          height: 1.32,
+          letterSpacing: 1.44,
+        ),
+      ),
     );
   }
 

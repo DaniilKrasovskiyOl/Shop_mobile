@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'profile.dart';
-import 'package:the_shop/widgets/appBar.dart';
-import 'package:the_shop/widgets/downBar.dart';
-import 'package:the_shop/widgets/customButton.dart';
+import 'package:the_shop/widgets/app_bar.dart';
+import 'package:the_shop/widgets/down_bar.dart';
+import 'package:the_shop/widgets/custom_button.dart';
 
 class AutorizedProfile extends StatefulWidget {
   const AutorizedProfile({super.key});
@@ -19,7 +19,7 @@ class _AutorizedProfileState extends State<AutorizedProfile> {
         child: SafeArea(
           child: Scaffold(
             backgroundColor: Colors.white,
-            appBar: const ShopAppBar(textBar: 'Профиль'),
+            appBar: const AppBarWidget(textBar: 'Профиль'),
             body: Column(
               children: [
                 Expanded(
@@ -27,19 +27,23 @@ class _AutorizedProfileState extends State<AutorizedProfile> {
                     padding: const EdgeInsets.only(top: 24),
                     child: Column(
                       children: [
-                        ProfileItem(text: 'Мои данные', context: context, diffPage: 1,),
+                        ProfileItem(
+                          text: 'Мои данные',
+                          context: context,
+                          diffPage: 1,
+                        ),
                         GestureDetector(
                           onTap: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => const ProfilePage()),
+                              MaterialPageRoute(
+                                  builder: (context) => const ProfilePage()),
                             );
                           },
                           child: Container(
                             padding: const EdgeInsets.only(
                                 bottom: 24, top: 24, left: 15, right: 15),
-                            child:
-                            const CustomButton(text: 'выйти'),
+                            child: const CustomButtonWidget(text: 'выйти'),
                           ),
                         ),
                       ],
@@ -48,7 +52,7 @@ class _AutorizedProfileState extends State<AutorizedProfile> {
                 ),
                 Container(
                   margin: const EdgeInsets.only(top: 16, bottom: 4),
-                  child: DownBar(indxPage: 5, parentContext: context),
+                  child: DownBarWidget(indxPage: 5, parentContext: context),
                 ),
               ],
             ),

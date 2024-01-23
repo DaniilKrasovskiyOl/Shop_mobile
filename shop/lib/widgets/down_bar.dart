@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class DownBar extends StatelessWidget {
+class DownBarWidget extends StatelessWidget {
   final int indxPage;
   final BuildContext parentContext;
 
-  const DownBar({Key? key, this.indxPage = -1, required this.parentContext}) : super(key: key);
+  const DownBarWidget(
+      {Key? key, this.indxPage = -1, required this.parentContext})
+      : super(key: key);
 
   void _navigateToPage(String route) {
     Navigator.pushNamed(parentContext, route);
@@ -14,33 +16,42 @@ class DownBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
+      color: const Color.fromARGB(255, 253, 139, 1),
       padding: const EdgeInsets.only(right: 20, left: 20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          _buildNavItem(
-            icon: indxPage == 1 ? 'assets/vitrina_active.svg' : 'assets/vitrina.svg',
+          _buildNavigationItem(
+            icon: indxPage == 1
+                ? 'assets/product_showcase.svg'
+                : 'assets/product_showcase_active.svg',
             text: 'Витрина',
-            route: '/vitrina',
+            route: '/product_showcase',
           ),
-          _buildNavItem(
-            icon: indxPage == 2 ? 'assets/catalog_active.svg' : 'assets/catalog.svg',
+          _buildNavigationItem(
+            icon: indxPage == 2
+                ? 'assets/product_catalog.svg'
+                : 'assets/product_catalog_active.svg',
             text: 'Каталог',
-            route: '/catalog',
+            route: '/product_catalog',
           ),
-          _buildNavItem(
-            icon: indxPage == 3 ? 'assets/korzina_active.svg' : 'assets/korzina.svg',
+          _buildNavigationItem(
+            icon: indxPage == 3
+                ? 'assets/shopping_cart.svg'
+                : 'assets/shopping_cart_active.svg',
             text: 'Корзина',
-            route: '/korzina',
+            route: '/shopping_cart',
           ),
-          _buildNavItem(
-            icon: indxPage == 4 ? 'assets/heart_active.svg' : 'assets/heart.svg',
+          _buildNavigationItem(
+            icon:
+                indxPage == 4 ? 'assets/heart.svg' : 'assets/heart_active.svg',
             text: 'Избранное',
-            route: '/favorites',
+            route: '/favorite_products',
           ),
-          _buildNavItem(
-            icon: indxPage == 5 ? 'assets/profile_active.svg' : 'assets/profile.svg',
+          _buildNavigationItem(
+            icon: indxPage == 5
+                ? 'assets/profile.svg'
+                : 'assets/profile_active.svg',
             text: 'Профиль',
             route: '/profile',
           ),
@@ -49,8 +60,8 @@ class DownBar extends StatelessWidget {
     );
   }
 
-  Widget _buildNavItem({required String icon, required String text, required String route}) {
-
+  Widget _buildNavigationItem(
+      {required String icon, required String text, required String route}) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [

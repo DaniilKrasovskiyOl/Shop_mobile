@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:the_shop/service/products_service.dart';
-import 'package:the_shop/screens/productScreen.dart';
-import 'package:the_shop/service/shopingCart_service.dart';
+import 'package:the_shop/repositories/products_repos.dart';
+import 'package:the_shop/pages/product_card.dart';
+import 'package:the_shop/repositories/cart_repos.dart';
 
 // ignore: use_key_in_widget_constructors
-class ProductCardWithService extends StatelessWidget {
+class ProductCardWithServiceWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<Products>>(
@@ -19,24 +19,24 @@ class ProductCardWithService extends StatelessWidget {
           return const Center(child: Text('No data available.'));
         } else {
           List<Products> products = snapshot.data!;
-          return ProductCard(product: products[0]);
+          return ProductCardWidget(product: products[0]);
         }
       },
     );
   }
 }
 
-class ProductCard extends StatefulWidget {
+class ProductCardWidget extends StatefulWidget {
   final Products product;
 
-  const ProductCard({Key? key, required this.product}) : super(key: key);
+  const ProductCardWidget({Key? key, required this.product}) : super(key: key);
 
   @override
   // ignore: library_private_types_in_public_api
   _ProductCardState createState() => _ProductCardState();
 }
 
-class _ProductCardState extends State<ProductCard> {
+class _ProductCardState extends State<ProductCardWidget> {
   bool isLiked = false;
 
   void _onCardTapped() {

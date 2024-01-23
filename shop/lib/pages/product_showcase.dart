@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:the_shop/widgets/downBar.dart';
-import '../widgets/carouselSale.dart';
-import 'shopingBag.dart';
-import 'package:the_shop/widgets/homeAppBar.dart';
-import 'package:the_shop/widgets/customButton.dart';
+import 'package:the_shop/widgets/down_bar.dart';
+import '../widgets/showcase_products.dart';
+import 'shopping_cart.dart';
+import 'package:the_shop/widgets/app_bar.dart';
+import 'package:the_shop/widgets/custom_button.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -21,27 +21,13 @@ class _HomePageState extends State<HomePage> {
         child: SafeArea(
           child: Scaffold(
             backgroundColor: Colors.white,
-            appBar: HomeAppBar(),
+            appBar: const AppBarWidget(textBar: 'Витрина товаров'),
             body: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                    margin: const EdgeInsets.symmetric(
-                        vertical: 24, horizontal: 15),
-                    child: const Text(
-                      'Заголовок',
-                      textAlign: TextAlign.left,
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 16,
-                        fontFamily: 'Montserrat',
-                        fontWeight: FontWeight.w500,
-                        height: 0.08,
-                        letterSpacing: 1.92,
-                      ),
-                    )),
-                Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
                   height: 50,
                   child: GestureDetector(
                     onTap: () {
@@ -52,18 +38,19 @@ class _HomePageState extends State<HomePage> {
                         ),
                       );
                     },
-                    child: const CustomButton(
+                    child: const CustomButtonWidget(
                       text: 'в корзину',
                       haveIcon: true,
                     ),
                   ),
                 ),
                 Expanded(
-                  child: Container(color: Colors.white, child: const VitrinaList()),
+                  child: Container(
+                      color: Colors.white, child: const VitrinaList()),
                 ),
                 Container(
                   margin: const EdgeInsets.only(top: 16, bottom: 4),
-                  child:  DownBar(indxPage: 1,parentContext: context),
+                  child: DownBarWidget(indxPage: 1, parentContext: context),
                 )
               ],
             ),

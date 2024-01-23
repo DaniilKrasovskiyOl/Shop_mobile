@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class ExceptionWidget extends StatelessWidget {
   const ExceptionWidget({super.key});
 
@@ -8,14 +7,8 @@ class ExceptionWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        width: MediaQuery
-            .of(context)
-            .size
-            .width * 0.7,
-        height: MediaQuery
-            .of(context)
-            .size
-            .height * 0.22,
+        width: MediaQuery.of(context).size.width * 0.7,
+        height: MediaQuery.of(context).size.height * 0.22,
         decoration: ShapeDecoration(
           color: Colors.white,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),

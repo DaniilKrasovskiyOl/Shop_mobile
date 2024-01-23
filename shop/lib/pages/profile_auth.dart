@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:the_shop/widgets/appBar.dart';
-import 'package:the_shop/widgets/downBar.dart';
-import 'package:the_shop/widgets/customButton.dart';
-import 'package:the_shop/screens/profile.dart';
+import 'package:the_shop/widgets/app_bar.dart';
+import 'package:the_shop/widgets/down_bar.dart';
+import 'package:the_shop/widgets/custom_button.dart';
+import 'package:the_shop/pages/profile.dart';
 
 class MyProfile extends StatefulWidget {
   const MyProfile({super.key});
@@ -19,7 +19,7 @@ class _MyProfileState extends State<MyProfile> {
         child: SafeArea(
           child: Scaffold(
             backgroundColor: Colors.white,
-            appBar: ShopAppBar(
+            appBar: AppBarWidget(
               textBar: 'Мои данные',
               haveVector: true,
               onBackTap: () {
@@ -89,7 +89,7 @@ class _MyProfileState extends State<MyProfile> {
                                   ),
                                   margin: const EdgeInsets.only(
                                       left: 15, right: 15),
-                                  child: const CustomButton(
+                                  child: const CustomButtonWidget(
                                     text: 'удалить аккаунт',
                                     white: true,
                                   ),
@@ -157,7 +157,8 @@ class _MyProfileState extends State<MyProfile> {
                                 child: Container(
                                   padding: const EdgeInsets.only(
                                       left: 15, right: 15, top: 32, bottom: 16),
-                                  child: const CustomButton(text: 'выйти'),
+                                  child:
+                                      const CustomButtonWidget(text: 'выйти'),
                                 ),
                               ),
                             ],
@@ -169,7 +170,7 @@ class _MyProfileState extends State<MyProfile> {
                 ),
                 Container(
                   margin: const EdgeInsets.only(top: 16, bottom: 4),
-                  child: DownBar(indxPage: 5, parentContext: context),
+                  child: DownBarWidget(indxPage: 5, parentContext: context),
                 ),
               ],
             ),
@@ -350,7 +351,6 @@ class _GenderSelectionContainerState extends State<GenderSelectionContainer> {
   }
 }
 
-// Метод для отображения всплывающего диалога
 void showDeleteAccountDialog(BuildContext context) {
   showDialog(
     context: context,

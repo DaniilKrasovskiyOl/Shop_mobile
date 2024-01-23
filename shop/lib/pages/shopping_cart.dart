@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:the_shop/widgets/customButton.dart';
-import '../widgets/downBar.dart';
-import 'package:the_shop/widgets/appBar.dart';
-import 'package:the_shop/widgets/ifEmpty.dart';
-import 'package:the_shop/widgets/cardInKorz.dart';
-import 'package:the_shop/service/shopingCart_service.dart';
-import 'package:the_shop/service/products_service.dart';
+import 'package:the_shop/widgets/custom_button.dart';
+import '../widgets/down_bar.dart';
+import 'package:the_shop/widgets/app_bar.dart';
+import 'package:the_shop/widgets/if_empty.dart';
+import 'package:the_shop/widgets/product_in_cart.dart';
+import 'package:the_shop/repositories/cart_repos.dart';
+import 'package:the_shop/repositories/products_repos.dart';
 import 'package:intl/intl.dart';
 
 class ShopingBagPage extends StatefulWidget {
@@ -94,7 +94,7 @@ class _ShopingBagPageState extends State<ShopingBagPage> {
         child: SafeArea(
           child: Scaffold(
             backgroundColor: Colors.white,
-            appBar: const ShopAppBar(
+            appBar: const AppBarWidget(
               textBar: 'Корзина',
               haveLink: true,
             ),
@@ -106,14 +106,14 @@ class _ShopingBagPageState extends State<ShopingBagPage> {
                           child: CircularProgressIndicator(),
                         )
                       : shoppingCart.isEmpty
-                          ? const IfEmpty(diff: 0)
+                          ? const IfEmptyWidget(diff: 0)
                           : ListView.builder(
                               itemCount: shoppingCart.length,
                               itemBuilder: (context, index) {
                                 return Container(
                                   padding: const EdgeInsets.symmetric(
                                       horizontal: 15),
-                                  child: CardInKorz(
+                                  child: ProductInCartWidget(
                                     cartItem: shoppingCart[index],
                                     onQuantityChanged: (quantity) {
                                       setState(() {
@@ -179,7 +179,7 @@ class _ShopingBagPageState extends State<ShopingBagPage> {
                                     onTap: () {
                                       showConfirmDialog(context);
                                     },
-                                    child: const CustomButton(
+                                    child: const CustomButtonWidget(
                                         text: 'оформить заказ')),
                               )
                             ],
@@ -188,7 +188,7 @@ class _ShopingBagPageState extends State<ShopingBagPage> {
                       ),
                 Container(
                   margin: const EdgeInsets.only(top: 16, bottom: 4),
-                  child: DownBar(indxPage: 3, parentContext: context),
+                  child: DownBarWidget(indxPage: 3, parentContext: context),
                 )
               ],
             ),

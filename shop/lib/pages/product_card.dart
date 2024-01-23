@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:the_shop/widgets/appBar.dart';
+import 'package:the_shop/widgets/app_bar.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:the_shop/widgets/productCardOpen.dart';
-import 'package:the_shop/widgets/descrProduct.dart';
-import 'package:the_shop/service/products_service.dart';
+import 'package:the_shop/widgets/product_card_open.dart';
+import 'package:the_shop/widgets/product_description.dart';
+import 'package:the_shop/repositories/products_repos.dart';
 
 //ignore: must_be_immutable
 class ProductCardPage extends StatefulWidget {
@@ -33,7 +33,7 @@ class _ProductCardPageState extends State<ProductCardPage> {
         home: Material(
           child: Scaffold(
             backgroundColor: Colors.white,
-            appBar: ShopAppBar(
+            appBar: AppBarWidget(
               textBar: widget.product.name,
               haveVector: true,
               haveLink: true,
@@ -70,13 +70,13 @@ class _ProductCardPageState extends State<ProductCardPage> {
                     ],
                   ),
                 ),
-                ProductCardOpen(
+                ProductCardOpenWidget(
                     name: widget.product.name,
                     price: widget.product.price,
                     oldPrice: widget.product.oldPrice,
                     image: widget.product.photo),
                 const Delimiter(),
-                DescrProduct(
+                DescriptionProductWidget(
                   generalDescr:
                       'Стильный столик журнальный металлический с подносом в стиле лофт эффектно впишется в тематический дизайн интерьера.',
                   style: 'Лофт',

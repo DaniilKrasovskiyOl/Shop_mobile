@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class CarouselWithIndicator extends StatefulWidget {
-  const CarouselWithIndicator({super.key});
+class ShowcaseProductsWidget extends StatefulWidget {
+  const ShowcaseProductsWidget({super.key});
 
   @override
   // ignore: library_private_types_in_public_api
-  _CarouselWithIndicatorState createState() => _CarouselWithIndicatorState();
+  _ShowcaseProductsState createState() => _ShowcaseProductsState();
 }
 
-class _CarouselWithIndicatorState extends State<CarouselWithIndicator> {
+class _ShowcaseProductsState extends State<ShowcaseProductsWidget> {
   late PageController _pageController;
   int _currentPage = 0;
 
@@ -114,7 +114,7 @@ class VitrinaList extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
       itemBuilder: (context, index) {
-        return const CarouselWithIndicator();
+        return const ShowcaseProductsWidget();
       },
       itemCount: 4, // null будет бесконечный список
     );

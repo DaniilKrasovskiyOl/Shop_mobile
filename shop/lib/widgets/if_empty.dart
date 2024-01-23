@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class IfEmpty extends StatelessWidget {
+class IfEmptyWidget extends StatelessWidget {
   final int diff;
 
-  const IfEmpty({Key? key, required this.diff}) : super(key: key);
+  const IfEmptyWidget({Key? key, required this.diff}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:the_shop/service/products_service.dart';
-import 'package:the_shop/screens/profile.dart';
-import 'package:the_shop/widgets/appBar.dart';
+import 'package:the_shop/repositories/products_repos.dart';
+import 'package:the_shop/widgets/app_bar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:the_shop/widgets/productCard.dart';
-import 'package:the_shop/widgets/downBar.dart';
+import 'package:the_shop/widgets/product_card.dart';
+import 'package:the_shop/widgets/down_bar.dart';
 import 'package:the_shop/widgets/search.dart';
 
 class CatalogPage extends StatefulWidget {
@@ -26,11 +25,11 @@ class _CatalogPageState extends State<CatalogPage> {
         home: Material(
           child: Scaffold(
             backgroundColor: Colors.white,
-            appBar: const ShopAppBar(textBar: 'Подкатегория товаров'),
+            appBar: const AppBarWidget(textBar: 'Каталог'),
             body: Column(
               children: [
                 SizedBox(
-                  width: double.infinity,
+                  width: 230,
                   height: 48.0,
                   child: Padding(
                     padding: const EdgeInsets.only(top: 15, bottom: 15),
@@ -41,17 +40,17 @@ class _CatalogPageState extends State<CatalogPage> {
                           height: 16,
                         ),
                         Padding(
-                            padding: const EdgeInsets.only(right: 15),
+                            padding: const EdgeInsets.only(right: 25),
                             child: SizedBox(
-                              width: 191,
-                              height: 16,
+                              width: 205,
+                              height: 12,
                               child: Row(
                                 mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   const Padding(
-                                    padding: EdgeInsets.only(top: 8),
+                                    padding: EdgeInsets.only(top: 8, left: 10),
                                     child: Text(
                                       'ПО ВОЗРАСТАНИЮ ЦЕНЫ',
                                       textAlign: TextAlign.right,
@@ -114,7 +113,7 @@ class _CatalogPageState extends State<CatalogPage> {
                           ),
                           itemCount: products.length,
                           itemBuilder: (BuildContext context, int index) {
-                            return ProductCard(product: products[index]);
+                            return ProductCardWidget(product: products[index]);
                           },
                         );
                       }
@@ -123,7 +122,7 @@ class _CatalogPageState extends State<CatalogPage> {
                 ),
                 Container(
                   margin: const EdgeInsets.only(top: 16, bottom: 4),
-                  child: DownBar(indxPage: 2, parentContext: context),
+                  child: DownBarWidget(indxPage: 2, parentContext: context),
                 )
               ],
             ),
@@ -132,102 +131,4 @@ class _CatalogPageState extends State<CatalogPage> {
       ),
     );
   }
-}
-
-void showDeleteAccountDialog(BuildContext context) {
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return AlertDialog(
-        content: Container(
-          margin: const EdgeInsets.symmetric(horizontal: 31),
-          child: const Text(
-            'Вы уверены, что хотите удалить аккаунт? Это действие необратимо.',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 14,
-              fontFamily: 'Montserrat',
-              fontWeight: FontWeight.w500,
-              height: 1.5,
-            ),
-          ),
-        ),
-        actions: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              GestureDetector(
-                onTap: () {
-                  // Обработчик нажатия на кнопку "Да"
-                  // deleteAccount();
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const ProfilePage()),
-                  );
-                },
-                child: Container(
-                  margin: const EdgeInsets.only(right: 17),
-                  width: 100,
-                  height: 50,
-                  decoration: ShapeDecoration(
-                    color: const Color(0xFF333333),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                  child: const Padding(
-                    padding: EdgeInsets.only(top: 15),
-                    child: Text(
-                      'ДА',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 14,
-                        fontFamily: 'Roboto',
-                        fontWeight: FontWeight.w700,
-                        height: 0,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  // Обработчик нажатия на кнопку "Да"
-                  // deleteAccount();
-                  Navigator.of(context).pop(); // Закрываем диалог
-                },
-                child: Container(
-                  width: 100,
-                  height: 50,
-                  decoration: ShapeDecoration(
-                    color: const Color(0xFF333333),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                  child: const Padding(
-                    padding: EdgeInsets.only(top: 15),
-                    child: Text(
-                      'НЕТ',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 14,
-                        fontFamily: 'Roboto',
-                        fontWeight: FontWeight.w700,
-                        height: 0,
-                      ),
-                    ),
-                  ),
-                ),
-              )
-            ],
-          )
-        ],
-      );
-    },
-  );
 }
